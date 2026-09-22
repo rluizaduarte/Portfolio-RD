@@ -7,6 +7,7 @@ import { Button, Container, Grid, Typography } from "@mui/material";
 import DownloadIcon from '@mui/icons-material/Download';
 import EmailIcon from '@mui/icons-material/Email';
 import theme from "../theme";
+import StyledButton from "./StyledButton";
 
 export default function Hero() {
   
@@ -32,15 +33,15 @@ export default function Hero() {
               <Typography variant="h1" sx={{ textAlign: "center", color:"primary.contrastText" }}>Rielly Duarte</Typography>
               <Typography variant="h2" sx={{ textAlign: "center", color:"primary.contrastText" }}>I'm a Computer Science student</Typography>
               <Grid container sx={{display: "flex", justifyContent:"center"}}>
-                <Grid size={3} sx={{display: "flex", justifyContent:"center"}}>
-                  <Button variant="outlined">
-                    <DownloadIcon/>Download CV
-                  </Button>
+                <Grid size={4} sx={{display: "flex", justifyContent:"center"}}>
+                  {StyledButton(<>
+                      <DownloadIcon />Download CV
+                  </>,)} 
                 </Grid>
-                <Grid size={3} sx={{display: "flex", justifyContent:"center"}}>
-                  <Button variant="outlined">
+                <Grid size={4} sx={{display: "flex", justifyContent:"center"}}>
+                  {StyledButton(<>
                     <EmailIcon/>Reach me
-                  </Button>
+                  </>,)} 
                 </Grid>
               </Grid>
             </Grid>
