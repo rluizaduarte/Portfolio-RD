@@ -19,6 +19,8 @@ export default function Hero() {
     backgroundColor: theme.palette.primary.main,
     display: "flex",
     alignItems: "center",
+    position: "relative",
+    overflow: "hidden", 
   }))
 
   const StyledImg = styled(Image)(() => ({
