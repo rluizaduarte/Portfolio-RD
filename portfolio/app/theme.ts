@@ -9,7 +9,10 @@ const theme = createTheme({
   },
   typography: {
     fontFamily:
-      'var(--font-main), "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Helvetica Neue", Helvetica, Arial, sans-serif',
+    h4: {
+      fontSize: "2.9rem",
+    },
   },
 });
 

@@ -5,12 +5,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "./theme";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-main",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: "Rielly Duarte",
   description: "Portfolio",
@@ -22,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
