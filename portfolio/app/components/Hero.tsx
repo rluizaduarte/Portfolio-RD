@@ -43,9 +43,9 @@ export default function Hero() {
               </Box>
             </Grid>
             <Grid size={{ xs: 12, md: 7 }}>
-              <Typography variant="h1" sx={{ textAlign: "center", color:"primary.contrastText" }}>Rielly Duarte</Typography>
-              <Typography variant="h4" sx={{ textAlign: "center", color:"primary.contrastText" }}>I'm a Computer Science student</Typography>
-              <Grid container sx={{display: "flex", justifyContent:"center"}} spacing={3}>
+              <Typography variant="h1" sx={{ textAlign: "center", color:"primary.contrastText", pb: 2 }}>Rielly Duarte</Typography>
+              <Typography variant="h2" sx={{ textAlign: "center", color:"primary.contrastText" }}>I'm a Computer Science student</Typography>
+              <Grid container sx={{display: "flex", justifyContent:"center", pt: 3}} spacing={3}>
                 <Grid size={4} sx={{display: "flex", justifyContent:"center"}}>
                   <StyledButton>
                     <DownloadIcon />
