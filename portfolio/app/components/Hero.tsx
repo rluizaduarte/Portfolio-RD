@@ -14,6 +14,9 @@ export default function Hero() {
   const StyledHero = styled("div")(() => ({
     height: "100vh",
     backgroundColor: theme.palette.primary.main,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   }))
 
   const StyledImg = styled(Image)(() => ({
@@ -32,15 +35,21 @@ export default function Hero() {
             <Grid size={8}>
               <Typography variant="h1" sx={{ textAlign: "center", color:"primary.contrastText" }}>Rielly Duarte</Typography>
               <Typography variant="h2" sx={{ textAlign: "center", color:"primary.contrastText" }}>I'm a Computer Science student</Typography>
-              <Grid container sx={{display: "flex", justifyContent:"center"}}>
+              <Grid container sx={{display: "flex", justifyContent:"center"}} spacing={3}>
                 <Grid size={4} sx={{display: "flex", justifyContent:"center"}}>
                   {StyledButton(<>
-                      <DownloadIcon />Download CV
+                      <DownloadIcon />
+                      <Typography>
+                        Download CV
+                      </Typography>
                   </>,)} 
                 </Grid>
                 <Grid size={4} sx={{display: "flex", justifyContent:"center"}}>
                   {StyledButton(<>
-                    <EmailIcon/>Reach me
+                    <EmailIcon/>
+                    <Typography>
+                      Reach me
+                    </Typography>
                   </>,)} 
                 </Grid>
               </Grid>
