@@ -5,12 +5,14 @@ import theme from "./theme";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import NavBar from "./components/NavBar";
 
 export default function Home() {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <NavBar />
         <Hero />
         <About />
         <Projects />
