@@ -119,7 +119,7 @@ export default function About() {
               variant="subtitle1"
               sx={{ color: "secondary.main", fontWeight: 600, mb: 1, letterSpacing: 0.5 }}
             >
-              Hi, I'm Rielly...
+              HI, I'M RIELLY...
             </Typography>
             <Typography
               variant="h1"
