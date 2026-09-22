@@ -21,6 +21,10 @@ const StyledButtonBase = styled("button")(({ theme }) => ({
   },
 }));
 
-export default function StyledButton({ children }: { children: ReactNode }) {
-  return <StyledButtonBase>{children}</StyledButtonBase>;
+export default function StyledButton({ children, onClick }: { children: ReactNode; onClick: () => void }) {
+  return (
+    <StyledButtonBase onClick={onClick}>
+      {children}
+    </StyledButtonBase>
+  );
 }

@@ -10,6 +10,8 @@ import theme from "../theme";
 import StyledButton from "./StyledButton";
 import { AnimatedBackground } from "./AnimatedBackground";
 
+const CV_PATH = "/Rielly-CV.pdf";
+
 export default function Hero() {
   
   const StyledHero = styled("div")(() => ({
@@ -24,6 +26,24 @@ export default function Hero() {
     borderRadius: "50%",
     border: `1px solid ${theme.palette.primary.contrastText}`,
   }))
+
+  const handleDownload = () => {
+    console.log("Download CV button clicked");
+    const link = document.createElement('a');
+    link.href = CV_PATH
+    link.download = 'Rielly_Duarte_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleReachMe = () => {
+    const emailAddress = 'riellycontato@gmail.com';
+    const subject = 'Subject';
+    const body = 'Hey! Saw your portfolio...';
+    const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink);
+  }
 
   return (
     <>
@@ -47,13 +67,13 @@ export default function Hero() {
               <Typography variant="h2" sx={{ textAlign: "center", color:"primary.contrastText" }}>I'm a Computer Science student</Typography>
               <Grid container sx={{display: "flex", justifyContent:"center", pt: 3}} spacing={3}>
                 <Grid size={4} sx={{display: "flex", justifyContent:"center"}}>
-                  <StyledButton>
+                  <StyledButton onClick={() => handleDownload()}>
                     <DownloadIcon />
                     <Typography>Download CV</Typography>
                   </StyledButton>
                 </Grid>
                 <Grid size={4} sx={{display: "flex", justifyContent:"center"}}>
-                  <StyledButton>
+                  <StyledButton onClick={() => handleReachMe()}>
                     <EmailIcon />
                     <Typography>Reach Me</Typography>
                   </StyledButton>
