@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { styled } from "@mui/material/styles";
-import { keyframes } from "@emotion/react";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import theme from "../theme";
 
 const timelineData = [
   { year: "2023", text: "First contact with programming" },
@@ -16,155 +13,105 @@ const timelineData = [
   { year: "Now", text: "5th semester student" },
 ];
 
-const fadeInUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const pulse = keyframes`
-  0% { box-shadow: 0 0 0 0 ${theme.palette.secondary.main}66; }
-  70% { box-shadow: 0 0 0 14px ${theme.palette.secondary.main}00; }
-  100% { box-shadow: 0 0 0 0 ${theme.palette.secondary.main}00; }
-`;
-
-const StyledAbout = styled("section")(() => ({
-  minHeight: "100vh",
-  backgroundColor: "#fff",
-  display: "flex",
-  alignItems: "center",
-  padding: "140px 0 80px",
-}));
-
-const TimelineWrapper = styled(Box)(() => ({
-  position: "relative",
-  paddingLeft: "32px",
-}));
-
-const TimelineLine = styled(Box)(() => ({
-  position: "absolute",
-  left: "6px",
-  top: "6px",
-  bottom: "6px",
-  width: "2px",
-  backgroundColor: theme.palette.secondary.main,
-  opacity: 0.25,
-}));
-
-const TimelineItem = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "inView" && prop !== "delay",
-})<{ inView: boolean; delay: number }>(({ inView, delay }) => ({
-  position: "relative",
-  paddingBottom: "32px",
-  opacity: 0,
-  animation: inView ? `${fadeInUp} 0.6s ease forwards` : "none",
-  animationDelay: `${delay}ms`,
-  "&:last-of-type": {
-    paddingBottom: 0,
-  },
-}));
-
-const TimelineDot = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "current",
-})<{ current?: boolean }>(({ current }) => ({
-  position: "absolute",
-  left: current ? "-36px" : "-32px",
-  top: current ? "2px" : "6px",
-  width: current ? "20px" : "14px",
-  height: current ? "20px" : "14px",
-  borderRadius: "50%",
-  backgroundColor: theme.palette.secondary.light,
-  boxShadow: "0 0 0 4px #fff",
-  ...(current && {
-    backgroundColor: theme.palette.secondary.main,
-    animation: `${pulse} 2s infinite`,
-  }),
-}));
-
-function useInView<T extends HTMLElement>() {
-  const ref = useRef<T>(null);
-  const [inView, setInView] = useState(false);
+export default function About() {
+  const [visible, setVisible] = useState(timelineData.map(() => false));
+  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute("data-index"));
+            setVisible((prev) => {
+              const updated = [...prev];
+              updated[index] = true;
+              return updated;
+            });
+          }
+        });
       },
       { threshold: 0.2 }
     );
 
-    observer.observe(node);
+    itemsRef.current.forEach((item) => {
+      if (item) observer.observe(item);
+    });
+
     return () => observer.disconnect();
   }, []);
 
-  return { ref, inView };
-}
-
-function TimelineEntry({
-  year,
-  text,
-  delay,
-  isNow,
-}: {
-  year: string;
-  text: string;
-  delay: number;
-  isNow?: boolean;
-}) {
-  const { ref, inView } = useInView<HTMLDivElement>();
-
   return (
-    <TimelineItem ref={ref} inView={inView} delay={delay}>
-      <TimelineDot current={isNow} />
-      <Typography
-        variant={isNow ? "h4" : "subtitle1"}
-        sx={{
-          fontWeight: isNow ? 800 : 700,
-          color: "secondary.main",
-          lineHeight: 1.2,
-        }}
-      >
-        {year}
-      </Typography>
-      <Typography
-        variant="body2"
-        sx={{ color: "#333", fontWeight: isNow ? 600 : 400 }}
-      >
-        {text}
-      </Typography>
-    </TimelineItem>
-  );
-}
-
-export default function About() {
-  return (
-    <StyledAbout id="about">
+    <Box
+      component="section"
+      id="about"
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: "#fff",
+        display: "flex",
+        alignItems: "center",
+        padding: "140px 0 80px",
+      }}
+    >
       <Container maxWidth="lg">
         <Grid container spacing={8} sx={{ alignItems: "flex-start" }}>
           <Grid size={{ xs: 12, md: 6 }}>
-            <TimelineWrapper>
-              <TimelineLine />
-              {timelineData.map((item, index) => (
-                <TimelineEntry
-                  key={item.year}
-                  year={item.year}
-                  text={item.text}
-                  delay={index * 100}
-                  isNow={item.year === "Now"}
-                />
-              ))}
-            </TimelineWrapper>
+            <Box sx={{ position: "relative", paddingLeft: "32px" }}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  left: "6px",
+                  top: "6px",
+                  bottom: "6px",
+                  width: "2px",
+                  backgroundColor: "secondary.main",
+                  opacity: 0.25,
+                }}
+              />
+
+              {timelineData.map((item, index) => {
+                const isNow = item.year === "Now";
+
+                return (
+                  <Box
+                    key={item.year}
+                    ref={(el: HTMLDivElement | null) => {
+                      itemsRef.current[index] = el;
+                    }}
+                    data-index={index}
+                    sx={{
+                      position: "relative",
+                      paddingBottom: "32px",
+                      opacity: visible[index] ? 1 : 0,
+                      transform: visible[index] ? "translateY(0)" : "translateY(24px)",
+                      transition: `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        left: isNow ? "-36px" : "-32px",
+                        top: isNow ? "2px" : "6px",
+                        width: isNow ? "20px" : "14px",
+                        height: isNow ? "20px" : "14px",
+                        borderRadius: "50%",
+                        backgroundColor: isNow ? "secondary.main" : "secondary.light",
+                        boxShadow: "0 0 0 4px #fff",
+                      }}
+                    />
+                    <Typography
+                      variant={isNow ? "h4" : "subtitle1"}
+                      sx={{ fontWeight: isNow ? 800 : 700, color: "secondary.main", lineHeight: 1.2 }}
+                    >
+                      {item.year}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "#333", fontWeight: isNow ? 600 : 400 }}>
+                      {item.text}
+                    </Typography>
+                  </Box>
+                );
+              })}
+            </Box>
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }}>
@@ -194,6 +141,6 @@ export default function About() {
           </Grid>
         </Grid>
       </Container>
-    </StyledAbout>
+    </Box>
   );
 }
