@@ -37,7 +37,7 @@ export default function Hero() {
           <Grid container spacing={2}>
             <Grid size={{ xs: 12, md: 5 }}>
               <Box sx={{ position: "relative" }}>
-                <Box sx={{ position: "absolute", textAlign: "center", width: "100%" }}>
+                <Box sx={{ position: "relative", textAlign: "center", width: "100%" }}>
                   <StyledImg src={Avatar} alt=""/>
                 </Box>
               </Box>
