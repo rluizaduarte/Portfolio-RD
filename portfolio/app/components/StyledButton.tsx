@@ -4,9 +4,9 @@ import { ReactNode } from "react";
 const StyledButtonBase = styled("button")(({ theme }) => ({
   position: "relative",
   backgroundColor: "transparent",
-  border: `1px solid ${theme.palette.primary.contrastText}`,
-  borderRadius: "3px",
-  padding: "5px 15px",
+  border: `1px solid rgba(255,255,255,0.2)`,
+  borderRadius: "10px",
+  padding: "10px 15px",
   width: "100%",
   display: "inline-flex",
   alignItems: "center",
