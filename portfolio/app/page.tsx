@@ -7,6 +7,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import NavBar from "./components/NavBar";
 import Skills from "./components/Skills";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
+        <Footer />
       </ThemeProvider>
     </React.Fragment>
   );
