@@ -14,14 +14,14 @@ const CV_PATH = "/Rielly-CV.pdf";
 
 export default function Hero() {
   
-  const StyledHero = styled("div")(() => ({
+  const StyledHero = styled("div")({
     height: "100vh",
     backgroundColor: theme.palette.primary.main,
     display: "flex",
     alignItems: "center",
     position: "relative",
     overflow: "hidden", 
-  }))
+  })
 
   const StyledImg = styled(Image)(() => ({
     width: "80%",
