@@ -10,25 +10,24 @@ import theme from "../theme";
 const projects = [
   {
     title: "Dice Game",
-    image: "/projects/dice-game.png",
+    image: "/projects/the-dice-game.png",
     description:
       "Two-player dice game built with Next.js for a college web & mobile programming assignment. Best of 5 rounds, with score tracking and a replay option.",
-    github: "https://github.com/rluizaduarte/Programacao-Web-e-Mobile/tree/main/jogo-dos-dados?classId=987468b2-1d5e-46b6-bc38-d45c727a0ad1&assignmentId=944506f4-6f06-444e-923e-5a520235c2e2&submissionId=a641af0f-a6be-0093-a250-1a5102bdb1a7",
-    live: "https://programacao-web-e-mobile-tc61-one.vercel.app/?classId=987468b2-1d5e-46b6-bc38-d45c727a0ad1&assignmentId=944506f4-6f06-444e-923e-5a520235c2e2&submissionId=a641af0f-a6be-0093-a250-1a5102bdb1a7",
+    github: "https://github.com/rluizaduarte/Programacao-Web-e-Mobile/tree/main/jogo-dos-dados",
+    live: "programacao-web-e-mobile-tc61-one.vercel.app",
   },
   {
     title: "Beatriz",
-    image: "/projects/project-2.png",
+    image: "/projects/beatriz.png",
     description: "A personal, one-page website inspired by 'Beatriz' by Jorge Vercillo — created as a heartfelt dedication to someone important to me. The layout and visual mood were designed to reflect the song's romantic tone, turning it into a small, meaningful digital gift.",
     github: "https://github.com/rluizaduarte/Beatriz",
-    live: "rluizaduarte.github.io/Beatriz",
   },
   {
     title: "Hangman Game",
-    image: "/projects/project-3.png",
+    image: "/projects/hangman-game.png",
     description: "Classic Hangman game built with React, featuring a random word from a 30+ word list each round, an on-screen keyboard for guessing letters, and a visual tracker for previous guesses. Includes win/loss screens and a 'Play Again' button to reset the game state.",
-    github: "",
-    live: "",
+    github: "https://github.com/rluizaduarte/Programacao-Web-e-Mobile/tree/main/jogo-da-forca",
+    live: "jogo-da-forca-ten-kappa.vercel.app",
   },
 ];
 
