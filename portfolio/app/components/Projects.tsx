@@ -9,24 +9,27 @@ import theme from "../theme";
 
 const projects = [
   {
-    title: "Dice Game",
-    image: "/projects/the-dice-game.png",
-    description:
-      "Two-player dice game built with Next.js for a college web & mobile programming assignment. Best of 5 rounds, with score tracking and a replay option.",
-    github: "https://github.com/rluizaduarte/Programacao-Web-e-Mobile/tree/main/jogo-dos-dados",
-    live: "programacao-web-e-mobile-tc61-one.vercel.app",
-  },
-  {
     title: "Beatriz",
     image: "/projects/beatriz.png",
-    description: "A personal, one-page website inspired by 'Beatriz' by Jorge Vercillo — created as a heartfelt dedication to someone important to me. The layout and visual mood were designed to reflect the song's romantic tone, turning it into a small, meaningful digital gift.",
+    description:
+      "A personal, one-page website inspired by 'Beatriz' by Jorge Vercillo — created as a heartfelt dedication to someone important to me. The layout and visual mood were designed to reflect the song's romantic tone, turning it into a small, meaningful digital gift.",
     github: "https://github.com/rluizaduarte/Beatriz",
+  },
+  {
+    title: "Massa Mia",
+    image: "/projects/massa-mia.png",
+    description:
+      "An academic project that turns a pizzeria’s management from a Java terminal program into a full web application. Owners track sales, events and reports, while employees register orders and schedule events, all stored in a cloud database.",
+    github: "https://github.com/rluizaduarte/Massa-Mia",
+    live: "massa-mia.vercel.app",
   },
   {
     title: "Hangman Game",
     image: "/projects/hangman-game.png",
-    description: "Classic Hangman game built with React, featuring a random word from a 30+ word list each round, an on-screen keyboard for guessing letters, and a visual tracker for previous guesses. Includes win/loss screens and a 'Play Again' button to reset the game state.",
-    github: "https://github.com/rluizaduarte/Programacao-Web-e-Mobile/tree/main/jogo-da-forca",
+    description:
+      "Classic Hangman game built with React, featuring a random word from a 30+ word list each round, an on-screen keyboard for guessing letters, and a visual tracker for previous guesses. Includes win/loss screens and a 'Play Again' button to reset the game state.",
+    github:
+      "https://github.com/rluizaduarte/Programacao-Web-e-Mobile/tree/main/jogo-da-forca",
     live: "jogo-da-forca-ten-kappa.vercel.app",
   },
 ];
@@ -71,7 +74,9 @@ export default function Projects() {
                   onClick={() => handleToggle(index)}
                   sx={{
                     border: "1.5px solid",
-                    borderColor: isOpen ? "secondary.main" : "rgba(255,255,255,0.2)",
+                    borderColor: isOpen
+                      ? "secondary.main"
+                      : "rgba(255,255,255,0.2)",
                     borderRadius: "10px",
                     overflow: "hidden",
                     cursor: "pointer",
@@ -81,7 +86,13 @@ export default function Projects() {
                     },
                   }}
                 >
-                  <Box sx={{ position: "relative", width: "100%", height: "180px" }}>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: "100%",
+                      height: "180px",
+                    }}
+                  >
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -91,7 +102,10 @@ export default function Projects() {
                   </Box>
 
                   <Box sx={{ padding: "20px" }}>
-                    <Typography variant="h6" sx={{ color: "#fff", fontWeight: 700 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "#fff", fontWeight: 700 }}
+                    >
                       {project.title}
                     </Typography>
 
@@ -105,7 +119,12 @@ export default function Projects() {
                     >
                       <Typography
                         variant="body2"
-                        sx={{ color: "rgba(255,255,255,0.75)", mt: 2, mb: 2, lineHeight: 1.7 }}
+                        sx={{
+                          color: "rgba(255,255,255,0.75)",
+                          mt: 2,
+                          mb: 2,
+                          lineHeight: 1.7,
+                        }}
                       >
                         {project.description}
                       </Typography>
