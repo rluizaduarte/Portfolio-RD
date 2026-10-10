@@ -21,7 +21,7 @@ const projects = [
     description:
       "An academic project that turns a pizzeria’s management from a Java terminal program into a full web application. Owners track sales, events and reports, while employees register orders and schedule events, all stored in a cloud database.",
     github: "https://github.com/rluizaduarte/Massa-Mia",
-    live: "massa-mia.vercel.app",
+    live: "https://massa-mia.vercel.app/",
   },
   {
     title: "Hangman Game",
@@ -30,7 +30,7 @@ const projects = [
       "Classic Hangman game built with React, featuring a random word from a 30+ word list each round, an on-screen keyboard for guessing letters, and a visual tracker for previous guesses. Includes win/loss screens and a 'Play Again' button to reset the game state.",
     github:
       "https://github.com/rluizaduarte/Programacao-Web-e-Mobile/tree/main/jogo-da-forca",
-    live: "jogo-da-forca-ten-kappa.vercel.app",
+    live: "https://jogo-da-forca-ten-kappa.vercel.app/",
   },
 ];
 
